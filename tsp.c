@@ -153,8 +153,8 @@ double dist_nodes(struct node *point_a, struct node *point_b)
 	if ( point_a == point_b ) return 0;
 	if ( point_a == NULL || point_b == NULL) return 999999;
 	double dx, dy, distance;
-	dx = (*point_b).x - (*point_a).x;
-	dy = (*point_b).y - (*point_a).y;
+	dx = point_b->x - point_a->x;
+	dy = point_b->y - point_a->y;
 
 	distance = sqrt(dx*dx + dy*dy);
 	return distance;
@@ -218,9 +218,6 @@ double swapped_tour_distance(struct node *tour, int A, int B)
 		distance -= dist_nodes(prt_B, initial);
 		distance += dist_nodes(prt_A, initial);
 	}
-
-
-
 }
 
 
@@ -257,47 +254,50 @@ tour with dist_nodes.
 	return closest;
 }
 
-int swap(struct node* A, struct node* B)
-{
-	if(A != NULL && B != NULL){
-		struct node* foo_prev; 
-		struct node* foo_next;
-
-		foo_prev = A->prev;
-		foo_next = A->next;
-
-		A->next = B->next;
-		A->prev = B->prev;
-		B->next = foo_next;
-		B->prev = foo_prev;
-
-		if (A->prev != NULL) A->prev->next = A;
-		if (A->next != NULL) A->next->prev = A;
-
-		if (B->prev != NULL) B->prev->next = B;
-		if (B->next != NULL) B->next->prev = B;
-
-		return 0;
-	} else return 1;
-}
+//struct node* swap(struct node* list, struct node* A, struct node* B)
+//{
+//	return list;
+//}
 
 struct node* swap_at(struct node* list, int A, int B){
 	if (list == NULL) return list;
 	if ( A == B ) return list;
 
-	struct node* prt_A; 
+	struct node* prt_A;
 	struct node* prt_B;
+	struct node* A_prev; 
+	struct node* A_next;
+	struct node* B_prev;
+	struct node* B_next;
 
 	struct node *initial = list; 
 
 	int iter;
 	for (iter = 0; list != NULL; list = list->next, iter++){
-		if ( iter == A) prt_A = list;
-		if ( iter == B) prt_B = list;
+		if ( iter == A){
+			prt_A = list;
+			A_next = list->next;
+			A_prev = list->prev;
+		}
+		if ( iter == B) {
+			prt_B= list;
+			B_next = list->next;
+			B_prev = list->prev;
+		}
 	}
-	iter = swap(prt_A, prt_B);
-	if (iter == 0) return list;
-	printf("error in swap\n");
+	
+	A_prev->next = prt_B;
+	B_prev->next = prt_A;
+	
+	B_next->prev = prt_A;
+	A_next->prev = prt_B;
+
+	prt_B->next = prt_A->next;
+	prt_A->next = prt_B->next;
+
+	prt_B->prev = prt_A->prev;
+	prt_A->prev = prt_B->prev;
+
 	return list;
 }
 
@@ -361,41 +361,48 @@ the last point in tour before its "moved"
 	//tour_take_nearest(&nodes, &tour);
 	//first = tour;
 
+	printf("starting\n");
 	struct node* current = nodes;
 	int r1;
 	int r2;
 	int iter;
 	double x; 
-	for (iter = 0; ; iter++){
+	for (iter = 0; iter < 10; iter++){
 		//printf ("%d.\n", iter);
 		// T_ is an exp func which does not cross zero, 
-		if (iter == 10) break;
 		distance = tour_distance(nodes);
-		r1 = (rand()+1)%node_count;
-		r2 = (rand()+1)%node_count;
-		//printf("%d\t%d\n",r1, r2);
-		//printf("%f\n", distance);
-		//printf("distance: %f vs %f\n", distance, swapped_tour_distance(nodes, 4, 5));
+		r1 = (rand()+2)%(node_count-1);
+		r2 = (rand()+2)%(node_count-1);
+		printf("-------");
+		printf("%d\t%d\n",r1, r2);
+		printf("%f\n", distance);
+		printf("distance: %f vs %f\n", distance, swapped_tour_distance(nodes, 4, 5));
 
 		if (distance > swapped_tour_distance(nodes, r1, r2)){
+			printf("if\n");
 			current = swap_at(nodes, r1, r2);
 		} else {
+			printf("else\n");
 			x = ((double)rand()/(double)RAND_MAX);
+			
 			if (T_(iter) > x ){
+				
 				current = swap_at(nodes, r1, r2);
-			} else {
-				// Do nothing. 
-			}
+			} 
 		}
 	}
-	printf("");
 	tour = nodes;
+/*	
 	for (; tour != NULL; tour = tour->next){	
 		printf("---\ntour\tprev:%p\tcurr:%p\tnext:%p\n",tour->prev,tour, tour->next);
 		printf("x = %f \t y = %f \t\t i = %d \n", tour->x, tour->y, tour->i);
 	}
+	/** DO NOT REMOVE THIS PRINT **/
+	printf("Done");
+	/** DO NOT REMOVE ABOVE PRINT **/
+	
 
-/*
+	/*
 	int c;
 	struct node* foo;
 	foo = tour;
