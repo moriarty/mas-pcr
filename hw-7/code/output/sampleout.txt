@@ -1,0 +1,2 @@
+# Maybe this is a PS file, Graph, or numpy array
+# But the file extension .out is in the gitignore

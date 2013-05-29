@@ -1,0 +1,2 @@
+Images go in this directory.
+And other Media to be included in the tex file
