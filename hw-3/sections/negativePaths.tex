@@ -1,0 +1,24 @@
+\noindent\textbf{Question 3:}
+
+
+\noindent\emph{AIMA 3.17:}
+\noindent\begin{enumerate}[a)]
+
+
+\item Arbitrarily large negative costs would force any optimal algorithm to exhaustively search the entire state space because with negative costs the exists the possibility of finding an arbitrarily large reward. The Cut Theorem is used in proving most if not all of the optimal search algorithms, it says that if you cut the state space into visited and unvisited states, with the start state being in the visited states and the goal still being unexplored, then the shortest path across the cut will be part of the minimal path. When Negative costs are introduced to the problem, there could exist at the other side of of a non optimal edge a negative cost that will undo taking this non optimal path.
+
+
+\item In the tree case, it can be shown that a branch will have a maximum reward of the the max negative constant by the remaining depth unexplored $c*depth$. Thus it can be determined if further exploration is required or if a larger reward is not possible and the branch can be pruned from the tree. In the graph case however looping is still possible and the agent can continuously traverse some loop collecting the maximum reward $c$.  
+
+
+\item If the operators have a negative cost, that is a reward, then it is optimal for the agent to continuously loop collecting the reward. Usually it is desired to prevent this. 
+
+
+\item Humans generally take continuous numbers of variables into account when making decisions, perhaps there is a nice view but if they have already seen it once or twice already that day, then seeing it again is not as rewarding. Driving the coastal road to the cottage may be beautiful, but it also takes an extra hour. Perhaps the weather that day is not nice and thus the coastal road will be foggy; or the weather is very nice and the reward of getting to the cottage and then to the beach is higher than taking a windy road in a car. It may still be rewarding to take the coastal road every once in a while, especially when there are visitors who haven't seen it also in the car, but otherwise it can seem like a tedious task \emph{(like programming without libraries)}. Artificial agents would need to include memory of having previously visited that state, and receive less of a reward each time it repeatedly revisits a state.
+
+
+\item There are many reasons to avoid taking an `leap' or a big step. For example, in North America university costs tens of thousands of dollars per year. Going to university will require, entrance into the university plus several part time jobs to pay for the university, and likely a loan from the bank or your parents... and statistically you are still likely to graduate in a debt of tens of thousands of dollars. If you work 3 part time jobs totalling 30 hours per week while attending 15 hours of lecture  and 9 hours of lab plus the ~2 hours of homework per hour of lecture you are left with about 4 hours per day to sleep and do other things. You may be tempted to skip lecture to catch up on sleep. But the costs amount to ~10\$ per lecture hour skipped. You could alternatively not go to university. Instead just directly take a job after high school. The minimum wage (in Canada) varies from ~10 to ~15 \$ per hour. Working full (40hrs/week) time for 49 weeks per year would thus net ~29,000\$ falling into one of the lowest tax brackets. After taxes and living expenses, and then saving (North America is worse at this than Germany) around 20-25 percent of the remaining income, you will be in the black. After 4 years, the minimum time required for a bachelor degree in North America you will have ~11,000 \$. The average student at Dalhousie University graduates with over 35,000 \$ of debt. This cost step has caused a number of my friends from high school to drop out of university, take low paying jobs and thus enter a loop of going to work, getting paid, buying things (big TVs, computers, video games) and going to work.   
+
+
+\end{enumerate}
+

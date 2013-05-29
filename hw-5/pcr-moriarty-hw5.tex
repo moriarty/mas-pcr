@@ -1,0 +1,29 @@
+\documentclass[11pt, oneside]{amsart}   	% use "amsart" instead of "article" for AMSLaTeX format
+\usepackage{geometry}                		% See geometry.pdf to learn the layout options. There are lots.
+\geometry{letterpaper}                   		% ... or a4paper or a5paper or ... 
+%\geometry{landscape}                		% Activate for for rotated page geometry
+%\usepackage[parfill]{parskip}    		% Activate to begin paragraphs with an empty line rather than an indent
+\usepackage{graphicx}				% Use pdf, png, jpg, or epsß with pdflatex; use eps in DVI mode
+								% TeX will automatically convert eps --> pdf in pdflatex		
+\usepackage{amssymb}
+\usepackage{setspace}
+\usepackage{enumerate}
+
+\newcommand{\BigO}[1]{\ensuremath{\operatorname{O}\left(#1\right)}}
+\newcommand{\BigTheta}[1]{\ensuremath{\operatorname{\Theta}\left(#1\right)}}
+
+\newcommand{\referenceFigure}[1]{Figure [\ref{#1}]}
+
+
+\title[PCR - Assignment 5 - Moriarty ]{\LARGE{ \bf{ Principles of Cognitive Robotics}} \\ \small{ Homework Assignment 5}}
+
+%\subtitle{this is a sub title}
+\author{Alexander Moriarty}
+\date{\today}		% Activate to display a given date or no date
+\begin{document}
+\maketitle
+\input{sections/tsp}
+%\input{sections/sortestPath}
+%\input{sections/negativePaths}
+%\input{sections/code}
+\end{document}  

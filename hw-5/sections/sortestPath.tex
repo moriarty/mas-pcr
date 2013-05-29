@@ -1,0 +1,18 @@
+\noindent\textbf{Question 2:}
+
+
+\noindent\emph{AIMA 3.15:}
+\noindent\begin{enumerate}[a)]
+
+
+\item If the values of $x$ and $y$ are real, or in $\mathbb{R}$, then they are themselves infinite, even on a finite interval. They are however limited by the  of the computer storing the values $x,y$. Since it clearly states in the problem that this is an `\emph{Idealization}' we shall assume the \emph{ideal} case where we are able to represent all real valued points $(x,y)$ or \emph{states} in this state space. Thus the number of states would be infinite as would the number of paths through the state space from $S$ to $G$.
+
+
+\item The shortest path from one point, to another point in $n^{th}$ Dimensional space without any obstacles is of course a straight line also in $n^{th}$ Dimensional space... I believe what I am about to say might break down if you can travel from points in $n^{th}$ dimensional space through spaces of higher Dimensions. So it's easy to see that the shortest way from point $A$ to point $B$, or in our case $S$ to $G$ is a straight line. Next we augment this example to have a single line of finite length in the direct path from point $S$ to $G$. A shortest path approach might (ie: bug algorithm) go in a straight line until the obstacle is reached, at which point the agent would be required to turn and follow  the line until one of its end points. But this will create two line segments, basic trigonometry can show that is is faster to travel directly from $S$ to one of the endpoints or \emph{Vertex} of the line obstacle. Now to finally augment this example to the situation of convex polygons is simple. Convex polygon obstacles are nothing more than collections of line segment obstacles which share vertices. 
+
+
+\item \emph{leaving for later. not allowing external libraries takes the fun out of programming and makes it seem like a tedious waste of time, especially when you know the libraries exist and you would in any real situation use the libraries.} 
+
+
+\end{enumerate}
+

@@ -1,0 +1,8 @@
+## Question about last lecture
+## To be honest it was so long ago I forget.
+
+1. Where is can one find the curriculum and learning objectives of this course? In the first lecture the material to be covered is presented but then it quickly changes to covering the history of AI. "In addition to the weekly assignments you have to formulate three technical ques/ons regarding the overall concepts taught in the last class (“big picture!”), which show, that you have studied the material presented there in detail." Is the big picture a review of general algorithms in computer science or the principles behind cognitive robotics?
+
+2. Could a blackboard example be provided and explained at each step for Dijsktra's and A*. And could they be compaired and contrasted with Prims or Kruskals algorithms. 
+
+3. It is said A*, which is an extension of Dijsktra's algorithm, achieves better performance through its use of Heuristics. What are the dis advantages to using heuristics.

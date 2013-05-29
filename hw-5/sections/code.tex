@@ -1,0 +1,25 @@
+\newpage
+\textbf{Question 4:}
+
+\emph{The missionaries and cannibals problem is usually stated as follows. Three missionaries and three cannibals are on one side of a river, along with a boat that can hold one or two people. Find a way to get every- one to the other side, without ever leaving a group of missionaries in one place outnumbered by the cannibals in that place.}
+
+\begin{enumerate}[a)]
+\item \emph{Formulate the problem precisely, making only those distinctions necessary to ensure a valid solution. Draw a diagram of the complete state space.}
+
+It is necessary to keep for each side of the river the number of monks, cannibals and boats (the boat in this case is a boolean, 0 or 1, but extended versions of this problem exist). Thus six values define a state. There are a number of actions available; however some result in invalid states, where cannibals outnumber monks. The actions can be encompassed in 3 integer values, representing the change in number of monks, cannibals or boats from one site of the river to the other (with the sign indicating direction.)
+
+In the following diagram, the direction of the transition has been ignored for a cleaner graph.
+
+Note: Having error with graphviz, including image and last working version of graph. State spaces accord to those in image
+%% 
+
+\item \emph{Implement and solve the problem optimally using an appropriate search algorithm. Is it a good idea to check for repeated states?}
+
+Yes. Without checking for repeated states it is very easy to initially or finally get stuck in loops.
+
+\item \emph{Why do you think people have a hard time solving this puzzle, given that the state space is so simple?}
+
+Because most people take a greedy approach and do not think to bring cannibals or monks back across the river. To many this is a step away from the solution; analogous to being stuck in a local minima while performing a gradient decent to find a global minima.  
+
+\end{enumerate}
+
